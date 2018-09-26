@@ -29,12 +29,8 @@ namespace Task {
 		{
 			get{
 				if (!eventManager) {
-					eventManager = FindObjectOfType (typeof(EventManager)) as EventManager;
-					if (!eventManager) {
-						Debug.LogError ("Minimaal één actieve eventmanager script actief op een GameObject");
-					} else {
-						eventManager.Init ();
-					}
+                    eventManager = new EventManager();
+				    eventManager.Init ();
 				}
 				return eventManager;
 			}

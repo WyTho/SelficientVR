@@ -15,10 +15,13 @@ namespace Business {
 
 		public IEnumerator AreaLoader(string uri)
 		{
-			UnityWebRequest www = UnityWebRequest.Get (uri);
-			yield return www.SendWebRequest();
+			UnityWebRequest www = UnityWebRequest.Get ("http://172.20.10.13:6002/service/getallhardware?apikey=kdfjadslj2xk");
 
-			if(www.isNetworkError || www.isHttpError) {
+            yield return www.SendWebRequest();
+            Debug.LogError("http://172.20.10.13:6002/service/getallhardware?apikey=kdfjadslj2xk");
+
+
+            if (www.isNetworkError || www.isHttpError) {
 				EventManager.TriggerEvent ("loading", false);
 				Debug.Log ("Error loading objects");
 			}

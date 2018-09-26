@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -13,9 +14,9 @@ namespace Business {
         private UnityAction<System.Object> saveHardwareState;
 		private UnityAction<System.Object> loadHardwareDataset;
 
-		[SerializeField] private string uri = "https://server.ecliptic.nl/hu/nosi/service/getallhardware?apikey=kdfjadslj2xk";
-		[SerializeField] string stateUri = "https://server.ecliptic.nl/hu/nosi/service/updatestate?apikey=kdfjadslj2xk";
-		[SerializeField] string datasetUri = "https://server.ecliptic.nl/hu/nosi/dashboard/#/api/graph";
+		[SerializeField] private string uri = "http://172.20.10.13:6002/service/getallhardware?apikey=kdfjadslj2xk";
+		[SerializeField] string stateUri = "http://172.20.10.13:6002/serivice/updatestate?apikey=kdfjadslj2xk";
+		[SerializeField] string datasetUri = "http://172.20.10.13:6002/newdashboard/api/graph";
 		[SerializeField] private string areaId; // TODO: De NoSi zo aanpassen dat er per area in geladen kan worden.
 		private IDataService serviceImplementation;
 		// Use this for initialization
@@ -23,20 +24,24 @@ namespace Business {
 		void Awake(){
 			saveHardwareState = new UnityAction<System.Object> (SaveHardwareState);
 			loadHardwareDataset = new UnityAction<System.Object> (LoadHardwareDataset);
-		}
-		void OnEnable(){
+            Debug.LogError("Awake");
+        }
+		void OnEnable(){    
 			EventManager.StartListening ("loadHardwareDataset", LoadHardwareDataset);
-			EventManager.StartListening ("updateHardwareState", SaveHardwareState); 
+			EventManager.StartListening ("updateHardwareState", SaveHardwareState);
+            Debug.LogError("onEnable");
 
-		}
+        }
 		void OnDisable(){
 			EventManager.StopListening ("loadHardwareDataset", LoadHardwareDataset);
-			EventManager.StopListening ("updateHardwareState", SaveHardwareState); 
+			EventManager.StopListening ("updateHardwareState", SaveHardwareState);
+            Debug.LogError("onDisable");
 
-		}
+        }
 		void Start () {
 			serviceImplementation = new HardwareService ();
 			StartCoroutine(AreaLoader(uri));
+            Debug.LogError("Start");
 		}
 	
 		#region Hier worden alle data requests afgehandeld.
@@ -57,6 +62,7 @@ namespace Business {
             string stringDatasetId = dataSetId as string;
 			EventManager.TriggerEvent ("showInteractiveLoader", true);
 			StartCoroutine (this.serviceImplementation.LoadHardwareDataset (stringDatasetId, datasetUri));
+            Debug.LogError("LoadHardwareDataset...");
 		}
 
 	
