@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using Task;
 using Business.Domain;
+using System.Text.RegularExpressions;
 using UnityEngine.Events;
 using System.IO;
 using System;
@@ -15,10 +16,13 @@ namespace Business {
 
 		public IEnumerator AreaLoader(string uri)
 		{
-			UnityWebRequest www = UnityWebRequest.Get ("http://172.20.10.13:6002/service/getallhardware?apikey=kdfjadslj2xk");
+            string pattern = @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b";
+            string newUri = Regex.Replace(uri, pattern, "172.20.10.13");
+            newUri = newUri.Replace("3001", "6002");
+			UnityWebRequest www = UnityWebRequest.Get (newUri);
 
             yield return www.SendWebRequest();
-            Debug.LogError("http://172.20.10.13:6002/service/getallhardware?apikey=kdfjadslj2xk");
+            Debug.LogError(newUri);
 
 
             if (www.isNetworkError || www.isHttpError) {
