@@ -27,14 +27,26 @@ namespace Task {
         }
         private static EventManager instance
 		{
-			get{
-				if (!eventManager) {
-                    eventManager = new EventManager();
-				    eventManager.Init ();
-				}
-				return eventManager;
-			}
-		}
+            get
+            {
+                if (!eventManager)
+                {
+                    eventManager = FindObjectOfType(typeof(EventManager)) as EventManager;
+
+                    if (!eventManager)
+                    {
+                        Debug.LogError("There needs to be one active EventManger script on a GameObject in your scene.");
+                    }
+                    else
+                    {
+                        eventManager.Init();
+                    }
+                }
+
+                return eventManager;
+            }
+        }
+    }
 		void Init (){
 
 			if (eventDictionary == null) {
