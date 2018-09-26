@@ -46,7 +46,6 @@ namespace Task {
                 return eventManager;
             }
         }
-    }
 		void Init (){
 
 			if (eventDictionary == null) {
