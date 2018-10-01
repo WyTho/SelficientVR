@@ -17,8 +17,9 @@ namespace Business {
 		public IEnumerator AreaLoader(string uri)
 		{
             string pattern = @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b";
-            string newUri = Regex.Replace(uri, pattern, "172.20.10.13");
-            newUri = newUri.Replace("3001", "6002");
+            string newUri = Regex.Replace(uri, pattern, "server.ecliptic.nl");
+            newUri = newUri.Replace(":3001", "/hu/nosi");
+            newUri = newUri.Replace("http", "https");
 			UnityWebRequest www = UnityWebRequest.Get (newUri);
 
             yield return www.SendWebRequest();
