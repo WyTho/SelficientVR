@@ -307,6 +307,14 @@
     <Compile Include="Assets\OutlineEffect\Demo\Toggle.cs" />
     <Compile Include="Assets\OutlineEffect\LinkedSet.cs" />
     <Compile Include="Assets\OutlineEffect\OutlineEffect.cs" />
+    <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
+    <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
+    <Compile Include="Assets\SampleScenes\Scripts\CameraSwitch.cs" />
+    <Compile Include="Assets\SampleScenes\Scripts\LevelReset.cs" />
+    <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
+    <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
+    <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\Software\Business layer\Domain\Area.cs" />
     <Compile Include="Assets\Software\Business layer\Domain\Hardware.cs" />
     <Compile Include="Assets\Software\Business layer\Domain\Interaction.cs" />
@@ -434,6 +442,7 @@
     <None Include="Assets\GoogleVR\Plugins\Android\proguard-gvr.txt" />
     <None Include="Assets\Mezanix\RealisticWoodTextures\0_1_Documentation\Read_me.txt" />
     <None Include="Assets\GoogleVR\Plugins\Android\AndroidManifest-Cardboard.xml" />
+    <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\Activity Indicators\ReadMe_txt.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Git/Selficient/SelficientVR/Interaction-layer/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
