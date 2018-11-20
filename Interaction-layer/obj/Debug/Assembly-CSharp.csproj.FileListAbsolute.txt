@@ -514,3 +514,5 @@ D:\Git\Selficient\SelficientVR\Interaction-layer\obj\Debug\Assembly-CSharp.cspro
 D:\Git\Selficient\SelficientVR\Interaction-layer\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\Git\Selficient\SelficientVR\Interaction-layer\obj\Debug\Assembly-CSharp.dll
 D:\Git\Selficient\SelficientVR\Interaction-layer\obj\Debug\Assembly-CSharp.pdb
+D:\Git\Selficient\SelficientVR\Interaction-layer\Temp\bin\Debug\UnityEngine.SpatialTrackingModule.dll
+D:\Git\Selficient\SelficientVR\Interaction-layer\Temp\bin\Debug\UnityEngine.SpatialTrackingModule.xml

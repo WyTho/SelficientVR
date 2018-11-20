@@ -16,37 +16,35 @@ namespace Business {
 
 		public IEnumerator AreaLoader(string uri)
 		{
-            string pattern = @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b";
-            string newUri = Regex.Replace(uri, pattern, "server.ecliptic.nl");
-            newUri = newUri.Replace(":3001", "/hu/nosi");
-            newUri = newUri.Replace("http", "https");
-			UnityWebRequest www = UnityWebRequest.Get (newUri);
+            //if (www.isNetworkError || www.isHttpError) {
+            //Debug.LogError("NetworkError");
+            //EventManager.TriggerEvent ("loading", false);
+            //Debug.Log ("Error loading objects");
 
-            yield return www.SendWebRequest();
-            Debug.LogError(newUri);
+            //}
+            //else {
+            Debug.LogError("Areas from Json");
+            Area[] areas = JsonHelper.FromJson<Area>(uri);
+            Debug.LogError("Test");
+            Debug.LogError(areas[0].areaname);
+            //  Hardware[] hardware = areas[0].hardwareList;
+            //Debug.Log (www.downloadHandler.text);
+            /* foreach (Area area in areas)
+             {
+                 foreach(Hardware hardware in area.hardware)
+                 {
+                     Debug.Log(hardware);
+                 }
+             }*/
+            //	Area area = new Area () { name = "LivingRoom", x = 25, y = 25, z = 10, hardware = hardware };
+            
 
+            EventManager.TriggerEvent ("triggerHardwareBuild", areas[0] as System.Object);
+		    EventManager.TriggerEvent ("loading", true);
 
-            if (www.isNetworkError || www.isHttpError) {
-				EventManager.TriggerEvent ("loading", false);
-				Debug.Log ("Error loading objects");
-			}
-			else {
-                Area[] areas = JsonHelper.FromJson<Area>(www.downloadHandler.text);
-              //  Hardware[] hardware = areas[0].hardwareList;
-				Debug.Log (www.downloadHandler.text);
-               /* foreach (Area area in areas)
-                {
-                    foreach(Hardware hardware in area.hardware)
-                    {
-                        Debug.Log(hardware);
-                    }
-                }*/
-			//	Area area = new Area () { name = "LivingRoom", x = 25, y = 25, z = 10, hardware = hardware };
-			
-				EventManager.TriggerEvent ("triggerHardwareBuild", areas[0] as System.Object);
-				EventManager.TriggerEvent ("loading", true);
-			}
-		}
+		    yield return null;
+            //}
+        }
 
 		public IEnumerator SaveHardwareState (System.Object hardwareObject, string uri)
 		{
@@ -68,6 +66,7 @@ namespace Business {
 
 		public IEnumerator LoadHardwareDataset (string datasetId, string uri)
 		{
+            Debug.LogError(uri + " datasetID: " + datasetId);
 			UnityWebRequest www = UnityWebRequest.Get (uri+"/"+datasetId);
 			//yield return www.SendWebRequest ();
 			//if (www.isNetworkError || www.isHttpError) {
