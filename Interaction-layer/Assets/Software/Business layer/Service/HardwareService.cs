@@ -23,10 +23,7 @@ namespace Business {
 
             //}
             //else {
-            Debug.LogError("Areas from Json");
             Area[] areas = JsonHelper.FromJson<Area>(uri);
-            Debug.LogError("Test");
-            Debug.LogError(areas[0].areaname);
             //  Hardware[] hardware = areas[0].hardwareList;
             //Debug.Log (www.downloadHandler.text);
             /* foreach (Area area in areas)
