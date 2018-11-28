@@ -12,18 +12,12 @@ using System;
 namespace Business {
 	public class HardwareService : IDataService {
 
-
-
 		public IEnumerator AreaLoader(string uri)
 		{
-            string pattern = @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b";
-            string newUri = Regex.Replace(uri, pattern, "server.ecliptic.nl");
-            newUri = newUri.Replace(":3001", "/hu/nosi");
-            newUri = newUri.Replace("http", "https");
-			UnityWebRequest www = UnityWebRequest.Get (newUri);
+			UnityWebRequest www = UnityWebRequest.Get (uri);
 
             yield return www.SendWebRequest();
-            Debug.LogError(newUri);
+            Debug.LogError(uri);
 
 
             if (www.isNetworkError || www.isHttpError) {

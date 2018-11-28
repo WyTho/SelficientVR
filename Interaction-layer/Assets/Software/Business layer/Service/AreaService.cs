@@ -10,14 +10,13 @@ using Business.Domain;
 namespace Business {
 	
 	public class AreaService : MonoBehaviour{
-        //string uri = "https://server.ecliptic.nl/hu/nosi/service/getallhardware?apikey=kdfjadslj2xk";
         private UnityAction<System.Object> saveHardwareState;
 		private UnityAction<System.Object> loadHardwareDataset;
 
-		[SerializeField] private string uri = "https://server.ecliptic.nl/hu/nosi/service/getallhardware?apikey=kdfjadslj2xk";
-		[SerializeField] string stateUri = "https://server.ecliptic.nl/hu/nosi/serivice/updatestate?apikey=kdfjadslj2xk";
-		[SerializeField] string datasetUri = "https://server.ecliptic.nl/hu/nosi/newdashboard/api/graph";
-		[SerializeField] private string areaId; // TODO: De NoSi zo aanpassen dat er per area in geladen kan worden.
+		[SerializeField] private string uri = "https://server.ecliptic.nl/hu/nosi/service/getallhardware?apikey=kdfjadslj2xk"; // The uri contains a link to JSON object of the areas and devices in the house.
+        [SerializeField] string stateUri = "https://server.ecliptic.nl/hu/nosi/serivice/updatestate?apikey=kdfjadslj2xk"; // stateUri contains a link to where the state of devices can be adjusted.
+        [SerializeField] string datasetUri = "https://server.ecliptic.nl/hu/nosi/newdashboard/api/graph"; // datasetUri contain a link to an image of a graph.
+        [SerializeField] private string areaId; // TODO: De NoSi zo aanpassen dat er per area in geladen kan worden.
 		private IDataService serviceImplementation;
 		// Use this for initialization
 
