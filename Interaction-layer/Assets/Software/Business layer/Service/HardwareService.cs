@@ -16,16 +16,8 @@ namespace Business {
 
 		public IEnumerator AreaLoader(string uri)
 		{
-            //if (www.isNetworkError || www.isHttpError) {
-            //Debug.LogError("NetworkError");
-            //EventManager.TriggerEvent ("loading", false);
-            //Debug.Log ("Error loading objects");
-
-            //}
-            //else {
             Area[] areas = JsonHelper.FromJson<Area>(uri);
             //  Hardware[] hardware = areas[0].hardwareList;
-            //Debug.Log (www.downloadHandler.text);
             /* foreach (Area area in areas)
              {
                  foreach(Hardware hardware in area.hardware)
@@ -40,7 +32,6 @@ namespace Business {
 		    EventManager.TriggerEvent ("loading", true);
 
 		    yield return null;
-            //}
         }
 
 		public IEnumerator SaveHardwareState (System.Object hardwareObject, string uri)
