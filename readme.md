@@ -1,6 +1,14 @@
-Dit is een aparte branch voor onderzoek naar de interactie.
-We willen later deze laag gaan samenvoegen met het model van het huis (Master). 
-Het volgende proberen we te bereiken:
-- De verschillende sensoren als object renderen vanuit de NoSi server (We laten deuren en lampen nog even terzijde). 
-- Interactie creëren met de onderdelen (Detecteren wanneer een gebruiker een sensor ziet in de VR). 
-- Informatie tonen bij de onderdelen (Detecteren wanneer een gebruiker een sensor opent en daarna dashboard informatie tonen bij de sensor).
+# Selficient VR
+This is the code of the selficient VR project. It uses Google VR SDK.
+
+## How to install
+What you need:
+- Unity 2018.2.10 or higher
+- Autodesk 3ds max
+
+In Unity open the interaction layer map. Unity will then load the project. 
+
+## How to build apk
+- In Unity go to file -> build settings
+- Download the android package. It is possible that there will be errors regarding missing files after downloading it. google the map in which the file is missing and you should be able to find a download.
+- Build
